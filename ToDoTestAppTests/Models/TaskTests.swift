@@ -40,7 +40,6 @@ final class TaskTests: XCTestCase {
         let task = Task(title: "Bar",
                         location: location)
         XCTAssertEqual(location, task.location)
-        
     }
     
 
