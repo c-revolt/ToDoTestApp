@@ -10,7 +10,10 @@ import UIKit
 final class TaskListViewController: UIViewController {
 
     private let viewModel: TaskListViewModelProtocol
+    var tableView: UITableView?
+    var dataProvider: TaskListDataProvider?
     
+    // MARK: Lifecircle
     init(viewModel: TaskListViewModelProtocol!) {
         self.viewModel = viewModel
         
@@ -25,6 +28,16 @@ final class TaskListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .green
+        tableView = UITableView()
+        dataProvider = TaskListDataProvider()
+        tableView?.delegate = dataProvider
+        tableView?.dataSource = dataProvider
+        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        tableView?.frame = view.bounds
     }
 }
 
