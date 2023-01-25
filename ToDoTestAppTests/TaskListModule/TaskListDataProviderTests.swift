@@ -17,7 +17,7 @@ final class TaskListDataProviderTests: XCTestCase {
         sut = TaskListDataProvider()
         tableView = UITableView()
         tableView.dataSource = sut
-        sut.taskManager = TaskManager()
+        sut.taskViewModel = TaskListViewModel()
     }
 
     override func tearDownWithError() throws {
@@ -31,15 +31,27 @@ final class TaskListDataProviderTests: XCTestCase {
         XCTAssertEqual(numberOfSections, 2)
     }
     
-    func testNumberOfRowsInSectionZeroIsTaskCount() {
-        sut.taskManager?.add(task: Task(title: "Foo"))
+    func testNumberOfRowsInSectionZeroIsTasksCount() {
+        sut.taskViewModel?.add(task: Task(title: "Foo"))
         XCTAssertEqual(tableView.numberOfRows(inSection: 0), 1)
         
-        sut.taskManager?.add(task: Task(title: "Bar"))
+        sut.taskViewModel?.add(task: Task(title: "Bar"))
         tableView.reloadData()
         
         XCTAssertEqual(tableView.numberOfRows(inSection: 0), 2)
     }
+    
+//    func testNumberOfRowsInSectionOneIsDoneTasksCount() {
+//        sut.taskManager?.add(task: Task(title: "Foo"))
+//        sut.taskManager?.checkTask(at: 0)
+//        XCTAssertEqual(tableView.numberOfRows(inSection: 1), 1)
+//
+//        sut.taskManager?.add(task: Task(title: "Bar"))
+//        sut.taskManager?.checkTask(at: 0)
+//        tableView.reloadData()
+//
+//        XCTAssertEqual(tableView.numberOfRows(inSection: 1), 2)
+//    }
     
 
 }

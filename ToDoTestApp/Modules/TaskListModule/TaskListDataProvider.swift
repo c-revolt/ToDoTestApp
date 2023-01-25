@@ -8,7 +8,7 @@
 import UIKit
 
 class TaskListDataProvider: NSObject {
-    var taskManager: TaskManager?
+    var taskViewModel: TaskListViewModelProtocol!
 }
 
 extension TaskListDataProvider: UITableViewDelegate {
@@ -22,7 +22,7 @@ extension TaskListDataProvider: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return taskManager?.tasksCount ?? 0
+        return taskViewModel.tasksCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

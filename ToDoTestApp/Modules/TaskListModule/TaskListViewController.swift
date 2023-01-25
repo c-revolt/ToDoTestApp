@@ -39,6 +39,7 @@ final class TaskListViewController: UIViewController {
         super.viewDidLayoutSubviews()
         tableView?.frame = view.bounds
     }
+    
 }
 
 extension TaskListViewController: TaskListViewControllerProtocol {

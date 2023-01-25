@@ -1,30 +1,30 @@
 //
-//  TaskManagerTests.swift
+//  TaskListViewModelTests.swift
 //  ToDoTestAppTests
 //
-//  Created by Александр Прайд on 24.01.2023.
+//  Created by Александр Прайд on 25.01.2023.
 //
 
 import XCTest
 @testable import ToDoTestApp
 
-final class TaskManagerTests: XCTestCase {
-
-    var sut: TaskManager!
+final class TaskListViewModelTests: XCTestCase {
     
+    var sut: TaskListViewModelProtocol!
+
     override func setUpWithError() throws {
-        sut = TaskManager()
+        sut = TaskListViewModel()
     }
 
     override func tearDownWithError() throws {
         sut = nil
     }
-
-    func testInitTaskManagerWithZeroTasks() {
+    
+    func testInitViewModelWithZeroTasks() {
         XCTAssertEqual(sut.tasksCount, 0)
     }
     
-    func testInitTaskManagerWithZeroDoneTasks() {
+    func testInitViewModelWithZeroDoneTasks() {
         XCTAssertEqual(sut.doneTasksCount, 0)
     }
     

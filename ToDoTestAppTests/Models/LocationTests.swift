@@ -22,6 +22,4 @@ final class LocationTests: XCTestCase {
         XCTAssertEqual(location.coordinate?.latitude, coordinate.latitude)
         XCTAssertEqual(location.coordinate?.longitude, coordinate.longitude)
     }
-    
-
 }

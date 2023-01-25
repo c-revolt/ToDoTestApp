@@ -19,8 +19,6 @@
 		D05D31BD297FD25700E304BC /* TaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05D31BC297FD25700E304BC /* TaskTests.swift */; };
 		D05D31C1297FD78500E304BC /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05D31C0297FD78500E304BC /* Location.swift */; };
 		D05D31C3297FD79A00E304BC /* LocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05D31C2297FD79A00E304BC /* LocationTests.swift */; };
-		D05D31C6297FE37B00E304BC /* TaskManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05D31C5297FE37B00E304BC /* TaskManagerTests.swift */; };
-		D05D31C9297FE68B00E304BC /* TaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05D31C8297FE68B00E304BC /* TaskManager.swift */; };
 		D05D31CC298117A000E304BC /* TaskListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05D31CB298117A000E304BC /* TaskListViewControllerTests.swift */; };
 		D05D31CE298119E700E304BC /* TaskListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05D31CD298119E700E304BC /* TaskListViewModel.swift */; };
 		D05D31D0298119F400E304BC /* TaskListIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05D31CF298119F400E304BC /* TaskListIO.swift */; };
@@ -29,6 +27,7 @@
 		D05D31D729811CAD00E304BC /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05D31D629811CAD00E304BC /* Assembly.swift */; };
 		D05D31D92981316200E304BC /* TaskListDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05D31D82981316200E304BC /* TaskListDataProvider.swift */; };
 		D05D31DB298139C700E304BC /* TaskListDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05D31DA298139C700E304BC /* TaskListDataProviderTests.swift */; };
+		D05D31DF2981482D00E304BC /* TaskListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05D31DE2981482D00E304BC /* TaskListViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,8 +64,6 @@
 		D05D31BC297FD25700E304BC /* TaskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTests.swift; sourceTree = "<group>"; };
 		D05D31C0297FD78500E304BC /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		D05D31C2297FD79A00E304BC /* LocationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTests.swift; sourceTree = "<group>"; };
-		D05D31C5297FE37B00E304BC /* TaskManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManagerTests.swift; sourceTree = "<group>"; };
-		D05D31C8297FE68B00E304BC /* TaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManager.swift; sourceTree = "<group>"; };
 		D05D31CB298117A000E304BC /* TaskListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewControllerTests.swift; sourceTree = "<group>"; };
 		D05D31CD298119E700E304BC /* TaskListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewModel.swift; sourceTree = "<group>"; };
 		D05D31CF298119F400E304BC /* TaskListIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListIO.swift; sourceTree = "<group>"; };
@@ -75,6 +72,7 @@
 		D05D31D629811CAD00E304BC /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
 		D05D31D82981316200E304BC /* TaskListDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListDataProvider.swift; sourceTree = "<group>"; };
 		D05D31DA298139C700E304BC /* TaskListDataProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListDataProviderTests.swift; sourceTree = "<group>"; };
+		D05D31DE2981482D00E304BC /* TaskListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,7 +125,6 @@
 			children = (
 				D05D31B6297FD0D100E304BC /* SupportingFiles */,
 				D05D31BF297FD75A00E304BC /* Model */,
-				D05D31C7297FE67400E304BC /* Managers */,
 				D05D31D329811C6D00E304BC /* Modules */,
 			);
 			path = ToDoTestApp;
@@ -137,8 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				D05D319D297FCFEB00E304BC /* ToDoTestAppTests.swift */,
-				D05D31CA2981177800E304BC /* Controllers */,
-				D05D31C4297FE35F00E304BC /* Managers */,
+				D05D31CA2981177800E304BC /* TaskListModule */,
 				D05D31BB297FD21B00E304BC /* Models */,
 			);
 			path = ToDoTestAppTests;
@@ -202,29 +198,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		D05D31C4297FE35F00E304BC /* Managers */ = {
-			isa = PBXGroup;
-			children = (
-				D05D31C5297FE37B00E304BC /* TaskManagerTests.swift */,
-			);
-			path = Managers;
-			sourceTree = "<group>";
-		};
-		D05D31C7297FE67400E304BC /* Managers */ = {
-			isa = PBXGroup;
-			children = (
-				D05D31C8297FE68B00E304BC /* TaskManager.swift */,
-			);
-			path = Managers;
-			sourceTree = "<group>";
-		};
-		D05D31CA2981177800E304BC /* Controllers */ = {
+		D05D31CA2981177800E304BC /* TaskListModule */ = {
 			isa = PBXGroup;
 			children = (
 				D05D31CB298117A000E304BC /* TaskListViewControllerTests.swift */,
+				D05D31DE2981482D00E304BC /* TaskListViewModelTests.swift */,
 				D05D31DA298139C700E304BC /* TaskListDataProviderTests.swift */,
 			);
-			path = Controllers;
+			path = TaskListModule;
 			sourceTree = "<group>";
 		};
 		D05D31D329811C6D00E304BC /* Modules */ = {
@@ -370,7 +351,6 @@
 			files = (
 				D05D31CE298119E700E304BC /* TaskListViewModel.swift in Sources */,
 				D05D31D729811CAD00E304BC /* Assembly.swift in Sources */,
-				D05D31C9297FE68B00E304BC /* TaskManager.swift in Sources */,
 				D05D31D529811C7D00E304BC /* Coordinator.swift in Sources */,
 				D05D31D0298119F400E304BC /* TaskListIO.swift in Sources */,
 				D05D31D92981316200E304BC /* TaskListDataProvider.swift in Sources */,
@@ -389,7 +369,7 @@
 			files = (
 				D05D31BD297FD25700E304BC /* TaskTests.swift in Sources */,
 				D05D31C3297FD79A00E304BC /* LocationTests.swift in Sources */,
-				D05D31C6297FE37B00E304BC /* TaskManagerTests.swift in Sources */,
+				D05D31DF2981482D00E304BC /* TaskListViewModelTests.swift in Sources */,
 				D05D319E297FCFEB00E304BC /* ToDoTestAppTests.swift in Sources */,
 				D05D31DB298139C700E304BC /* TaskListDataProviderTests.swift in Sources */,
 				D05D31CC298117A000E304BC /* TaskListViewControllerTests.swift in Sources */,
