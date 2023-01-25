@@ -28,6 +28,7 @@
 		D05D31D529811C7D00E304BC /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05D31D429811C7D00E304BC /* Coordinator.swift */; };
 		D05D31D729811CAD00E304BC /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05D31D629811CAD00E304BC /* Assembly.swift */; };
 		D05D31D92981316200E304BC /* TaskListDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05D31D82981316200E304BC /* TaskListDataProvider.swift */; };
+		D05D31DB298139C700E304BC /* TaskListDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05D31DA298139C700E304BC /* TaskListDataProviderTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		D05D31D429811C7D00E304BC /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		D05D31D629811CAD00E304BC /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
 		D05D31D82981316200E304BC /* TaskListDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListDataProvider.swift; sourceTree = "<group>"; };
+		D05D31DA298139C700E304BC /* TaskListDataProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListDataProviderTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				D05D31CB298117A000E304BC /* TaskListViewControllerTests.swift */,
+				D05D31DA298139C700E304BC /* TaskListDataProviderTests.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 				D05D31C3297FD79A00E304BC /* LocationTests.swift in Sources */,
 				D05D31C6297FE37B00E304BC /* TaskManagerTests.swift in Sources */,
 				D05D319E297FCFEB00E304BC /* ToDoTestAppTests.swift in Sources */,
+				D05D31DB298139C700E304BC /* TaskListDataProviderTests.swift in Sources */,
 				D05D31CC298117A000E304BC /* TaskListViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
