@@ -11,16 +11,13 @@ import XCTest
 final class TaskManagerTests: XCTestCase {
 
     var sut: TaskManager!
-    var task: Task!
     
     override func setUpWithError() throws {
         sut = TaskManager()
-        task = Task(title: "Foo")
     }
 
     override func tearDownWithError() throws {
         sut = nil
-        task = nil
     }
 
     func testInitTaskManagerWithZeroTasks() {
@@ -32,13 +29,14 @@ final class TaskManagerTests: XCTestCase {
     }
     
     func testTaskAtIndexIsAddedTask() {
+        let task = Task(title: "Foo")
         sut.add(task: task)
         let returnedTask = sut.task(at: 0)
         XCTAssertEqual(task.title, returnedTask.title)
     }
     
     func testCheckTaskAtIndexChangesCounts() {
-        sut.add(task: task)
+        sut.add(task: Task(title: "Foo"))
         sut.checkTask(at: 0)
         XCTAssertEqual(sut.tasksCount, 0)
         XCTAssertEqual(sut.doneTasksCount, 1)
@@ -50,13 +48,30 @@ final class TaskManagerTests: XCTestCase {
         sut.add(task: firstTask)
         sut.add(task: secondTask)
         sut.checkTask(at: 0)
-        XCTAssertEqual(sut.task(at: 0).title, "Bar")
+        XCTAssertEqual(sut.task(at: 0), secondTask)
     }
     
     func testDoneTaskAtReturnsCheckedTask() {
+        let task = Task(title: "Foo")
         sut.add(task: task)
         sut.checkTask(at: 0)
         let returnedTask = sut.doneTask(at: 0)
-        XCTAssertEqual(returnedTask.title, task.title)
+        XCTAssertEqual(returnedTask, task)
+    }
+    
+    func testRemoveAllResultsCountsBeZero() {
+        sut.add(task: Task(title: "Foo"))
+        sut.add(task: Task(title: "Bar"))
+        sut.checkTask(at: 0)
+        sut.removeAll()
+        
+        XCTAssertTrue(sut.tasksCount == 0)
+        XCTAssertTrue(sut.doneTasksCount == 0)
+    }
+    
+    func testAddingSameObjectDoesNotIncrementCount() {
+        sut.add(task: Task(title: "Foo"))
+        sut.add(task: Task(title: "Foo"))
+        XCTAssertTrue(sut.tasksCount == 1)
     }
 }

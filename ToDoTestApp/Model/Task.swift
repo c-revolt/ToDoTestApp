@@ -8,7 +8,6 @@
 import Foundation
 
 struct Task {
-    
     let title: String?
     let description: String?
     private(set) var date: Date?
@@ -19,5 +18,16 @@ struct Task {
         self.description = description
         self.date = Date()
         self.location = location
+    }
+}
+
+extension Task: Equatable {
+    static func == (lhs: Task, rhs: Task) -> Bool {
+        if lhs.title == rhs.title,
+            rhs.description == lhs.description,
+            lhs.location == rhs.location {
+            return true
+        }
+        return false
     }
 }
