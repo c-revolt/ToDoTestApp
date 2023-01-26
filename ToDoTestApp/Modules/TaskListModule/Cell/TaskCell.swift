@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class TaskCell: UITableViewCell {
+class TaskCell: UITableViewCell {
     
     static let reusedID = K.taskCellReusedID
     
@@ -17,5 +17,9 @@ final class TaskCell: UITableViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func configure(withTask task: Task) {
+        
     }
 }

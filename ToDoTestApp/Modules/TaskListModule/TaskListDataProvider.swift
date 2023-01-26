@@ -40,6 +40,11 @@ extension TaskListDataProvider: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: TaskCell.reusedID, for: indexPath) as! TaskCell
+        
+        let task = viewModel.task(at: indexPath.row)
+        cell.configure(withTask: task)
+        
+        
         return cell
     }
 }
