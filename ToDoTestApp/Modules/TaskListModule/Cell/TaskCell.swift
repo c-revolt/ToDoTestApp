@@ -9,4 +9,13 @@ import UIKit
 
 final class TaskCell: UITableViewCell {
     
+    static let reusedID = K.taskCellReusedID
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }

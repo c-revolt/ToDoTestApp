@@ -12,11 +12,16 @@ final class TaskListDataProviderTests: XCTestCase {
 
     var sut: TaskListDataProvider!
     var tableView: UITableView!
+    var controller: TaskListViewController!
     
     override func setUpWithError() throws {
         sut = TaskListDataProvider()
         sut.viewModel = TaskListViewModel()
-        tableView = UITableView()
+        controller = TaskListViewController(viewModel: sut.viewModel)
+        
+        controller.loadViewIfNeeded()
+        
+        tableView = controller.tableView
         tableView.dataSource = sut
         
     }
@@ -62,5 +67,29 @@ final class TaskListDataProviderTests: XCTestCase {
         
         XCTAssertTrue(cell is TaskCell)
     }
+    
+    func testCellForRowAtIndexPathDequeuesCellFromTableView() {
+        let mockTableView = MockTableView()
+        mockTableView.dataSource = sut
+        mockTableView.register(TaskCell.self, forCellReuseIdentifier: TaskCell.reusedID)
+        
+        sut.viewModel.add(task: Task(title: "Foo"))
+        mockTableView.reloadData()
+        
+        _ = mockTableView.cellForRow(at: IndexPath(row: 0, section: 0))
+        
+        XCTAssertTrue(mockTableView.cellsDequeued)
+    }
+}
 
+extension TaskListDataProviderTests {
+    class MockTableView: UITableView {
+        var cellsDequeued = false
+        
+        override func dequeueReusableCell(withIdentifier identifier: String, for indexPath: IndexPath) -> UITableViewCell {
+            cellsDequeued = true
+            
+            return super.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
+        }
+    }
 }

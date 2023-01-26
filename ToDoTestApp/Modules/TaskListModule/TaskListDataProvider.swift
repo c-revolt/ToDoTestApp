@@ -38,9 +38,9 @@ extension TaskListDataProvider: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return TaskCell()
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: TaskCell.reusedID, for: indexPath) as! TaskCell
+        return cell
     }
-    
-    
 }
 

@@ -29,6 +29,7 @@
 		D05D31DB298139C700E304BC /* TaskListDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05D31DA298139C700E304BC /* TaskListDataProviderTests.swift */; };
 		D05D31DF2981482D00E304BC /* TaskListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05D31DE2981482D00E304BC /* TaskListViewModelTests.swift */; };
 		D05D31E2298298FC00E304BC /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05D31E1298298FC00E304BC /* TaskCell.swift */; };
+		D05D31E52982B25900E304BC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05D31E42982B25900E304BC /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		D05D31DA298139C700E304BC /* TaskListDataProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListDataProviderTests.swift; sourceTree = "<group>"; };
 		D05D31DE2981482D00E304BC /* TaskListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewModelTests.swift; sourceTree = "<group>"; };
 		D05D31E1298298FC00E304BC /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
+		D05D31E42982B25900E304BC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				D05D31B6297FD0D100E304BC /* SupportingFiles */,
+				D05D31E32982B23E00E304BC /* Helpers */,
 				D05D31BF297FD75A00E304BC /* Model */,
 				D05D31D329811C6D00E304BC /* Modules */,
 			);
@@ -228,6 +231,14 @@
 				D05D31E1298298FC00E304BC /* TaskCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		D05D31E32982B23E00E304BC /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				D05D31E42982B25900E304BC /* Constants.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -367,6 +378,7 @@
 				D05D31E2298298FC00E304BC /* TaskCell.swift in Sources */,
 				D05D31D92981316200E304BC /* TaskListDataProvider.swift in Sources */,
 				D05D31BA297FD20F00E304BC /* Task.swift in Sources */,
+				D05D31E52982B25900E304BC /* Constants.swift in Sources */,
 				D05D318B297FCFE400E304BC /* TaskListViewController.swift in Sources */,
 				D05D31C1297FD78500E304BC /* Location.swift in Sources */,
 				D05D3187297FCFE400E304BC /* AppDelegate.swift in Sources */,

@@ -28,16 +28,20 @@ final class TaskListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .green
-        tableView = UITableView()
+        setupTableView()
         dataProvider = TaskListDataProvider()
-        tableView?.delegate = dataProvider
-        tableView?.dataSource = dataProvider
-        
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         tableView?.frame = view.bounds
+    }
+    
+    private func setupTableView() {
+        tableView = UITableView()
+        tableView?.delegate = dataProvider
+        tableView?.dataSource = dataProvider
+        tableView?.register(TaskCell.self, forCellReuseIdentifier: TaskCell.reusedID)
     }
     
 }
