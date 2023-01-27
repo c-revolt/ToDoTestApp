@@ -17,6 +17,7 @@ class TaskListDataProvider: NSObject {
 }
 
 extension TaskListDataProvider: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
         
         guard let section = Section(rawValue: indexPath.section) else { fatalError() }
@@ -25,7 +26,6 @@ extension TaskListDataProvider: UITableViewDelegate {
         case .toDo: return "Done"
         case .done: return "Undone"
         }
-        
     }
 }
 
@@ -62,6 +62,19 @@ extension TaskListDataProvider: UITableViewDataSource {
         cell.configure(withTask: task)
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        guard let section = Section(rawValue: indexPath.section),
+                let viewModel = viewModel else { fatalError() }
+        
+        switch section {
+        case .toDo: viewModel.checkTask(at: indexPath.row)
+        case .done: viewModel.uncheckTask(at: indexPath.row)
+        }
+        
+        tableView.reloadData()
     }
 }
 

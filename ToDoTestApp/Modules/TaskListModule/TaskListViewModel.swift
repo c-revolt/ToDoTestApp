@@ -32,8 +32,6 @@ final class TaskListViewModel {
 
 extension TaskListViewModel: TaskListViewModelProtocol {
     
-    
-    
     func add(task: Task) {
         if !tasks.contains(task) {
             tasks.append(task)
@@ -47,6 +45,11 @@ extension TaskListViewModel: TaskListViewModelProtocol {
     func checkTask(at index: Int) {
         let task = tasks.remove(at: index)
         doneTasks.append(task)
+    }
+    
+    func uncheckTask(at index: Int) {
+        let doneTask = doneTasks.remove(at: index)
+        tasks.append(doneTask)
     }
 
     func doneTask(at index: Int) -> Task {

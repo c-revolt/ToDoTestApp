@@ -20,6 +20,7 @@ protocol TaskListViewModelProtocol: AnyObject {
     func add(task: Task)
     func task(at index: Int) -> Task
     func checkTask(at index: Int)
+    func uncheckTask(at index: Int)
     func doneTask(at index: Int) -> Task
     func removeAll()
 }
