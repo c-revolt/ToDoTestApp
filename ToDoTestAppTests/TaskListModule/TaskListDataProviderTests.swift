@@ -23,6 +23,7 @@ final class TaskListDataProviderTests: XCTestCase {
         
         tableView = controller.tableView
         tableView.dataSource = sut
+        tableView.delegate = sut
         
     }
 
@@ -108,6 +109,18 @@ final class TaskListDataProviderTests: XCTestCase {
         let cell = mockTableView.cellForRow(at: IndexPath(row: 0, section: 1)) as! MockTaskCell
         
         XCTAssertEqual(cell.task, task)
+    }
+    
+    func testDeleteButtonTitleSectionZeroShowsDone() {
+        let titleButton = tableView.delegate?.tableView?(tableView, titleForDeleteConfirmationButtonForRowAt: IndexPath(row: 0, section: 0))
+        
+        XCTAssertEqual(titleButton, "Done")
+    }
+    
+    func testDeleteButtonTitleSectionOneShowsDone() {
+        let titleButton = tableView.delegate?.tableView?(tableView, titleForDeleteConfirmationButtonForRowAt: IndexPath(row: 0, section: 1))
+        
+        XCTAssertEqual(titleButton, "Undone")
     }
 }
 
