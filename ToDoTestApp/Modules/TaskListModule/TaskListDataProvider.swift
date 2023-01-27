@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum Section: Int {
+enum Section: Int, CaseIterable {
     case toDo
     case done
 }
@@ -23,7 +23,7 @@ extension TaskListDataProvider: UITableViewDelegate {
 extension TaskListDataProvider: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return Section.allCases.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -41,9 +41,16 @@ extension TaskListDataProvider: UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: TaskCell.reusedID, for: indexPath) as! TaskCell
         
-        let task = viewModel.task(at: indexPath.row)
-        cell.configure(withTask: task)
+        guard let section = Section(rawValue: indexPath.section) else { fatalError() }
+        guard let viewModel = viewModel else { fatalError() }
         
+        let task: Task
+        switch section {
+        case .toDo: task = viewModel.task(at: indexPath.row)
+        case .done: task = viewModel.doneTask(at: indexPath.row)
+        }
+    
+        cell.configure(withTask: task)
         
         return cell
     }

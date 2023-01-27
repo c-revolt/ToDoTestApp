@@ -92,6 +92,19 @@ final class TaskListDataProviderTests: XCTestCase {
         
         XCTAssertEqual(cell.task, task)
     }
+    
+    func testCellForRowInSectionDoneZeroCallsConfigure() {
+        tableView.register(MockTaskCell.self, forCellReuseIdentifier: TaskCell.reusedID)
+        
+        let task = Task(title: "Foo")
+        sut.viewModel.add(task: task)
+        sut.viewModel.checkTask(at: 0)
+        tableView.reloadData()
+        
+        let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 1)) as! MockTaskCell
+        
+        XCTAssertEqual(cell.task, task)
+    }
 }
 
 extension TaskListDataProviderTests {
