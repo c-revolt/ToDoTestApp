@@ -12,6 +12,7 @@ protocol TaskListViewControllerProtocol: AnyObject {
 }
 
 protocol TaskListViewModelProtocol: AnyObject {
+    func tappedRightBarButton()
     var doneTasksCount: Int { get }
     var tasksCount: Int { get }
     var tasks: [Task] { get }

@@ -26,5 +26,15 @@ final class Coordinator {
 
 // MARK: TaskListOutput
 extension Coordinator: TaskListOutput {
+    func showDetailTaskViewController() {
+        let detailTaskVC = assembly.makeDetailTask(output: self)
+        navigationController?.present(detailTaskVC, animated: true)
+    }
+    
+    
+}
+
+// MARK: DetailTaskOutput
+extension Coordinator: DetailTaskOutput {
     
 }

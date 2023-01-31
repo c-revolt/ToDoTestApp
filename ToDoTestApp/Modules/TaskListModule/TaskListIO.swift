@@ -12,5 +12,5 @@ protocol TaskListInput: AnyObject {
 }
 
 protocol TaskListOutput: AnyObject {
-    
+    func showDetailTaskViewController()
 }

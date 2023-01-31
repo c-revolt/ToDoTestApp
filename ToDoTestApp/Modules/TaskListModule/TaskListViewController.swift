@@ -31,7 +31,7 @@ final class TaskListViewController: UIViewController {
         view.backgroundColor = .systemBackground
         
         setupTableView()
-        title = "Task List"
+        setupNavigationBar()
     }
     
     override func viewDidLayoutSubviews() {
@@ -49,6 +49,22 @@ final class TaskListViewController: UIViewController {
         tableView.register(TaskCell.self, forCellReuseIdentifier: TaskCell.reusedID)
         
     }
+    
+    private func setupNavigationBar() {
+        title = "Task List"
+        
+        let plusImage = UIImage(systemName: "plus.circle.fill")
+        let barButtonItem = UIBarButtonItem(image: plusImage, style: .plain, target: self, action: #selector(tappedRightBarButton))
+        barButtonItem.tintColor = .link
+        navigationItem.rightBarButtonItem = barButtonItem
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    @objc private func tappedRightBarButton() {
+        viewModel.tappedRightBarButton()
+    }
+                                            
+                                
 }
 
 extension TaskListViewController: TaskListViewControllerProtocol {

@@ -31,6 +31,10 @@ final class TaskListViewModel {
 }
 
 extension TaskListViewModel: TaskListViewModelProtocol {
+    func tappedRightBarButton() {
+        output?.showDetailTaskViewController()
+    }
+    
     
     func add(task: Task) {
         if !tasks.contains(task) {
